@@ -1,0 +1,20 @@
+{
+  "name": "react-pro-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:app:prod": "rm -rf dist/app && node --loader ts-node/esm configs/esbuild.app.config.ts",
+    "build:app:dev": "rm -rf dist/app && node --loader ts-node/esm configs/esbuild.app.dev.config.ts",
+    "build:lib": "rm -rf dist/lib && node --loader ts-node/esm configs/esbuild.lib.config.ts"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.24",
+    "esbuild": "^0.25.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "lodash": "^4.18.1"
+  }
+}
