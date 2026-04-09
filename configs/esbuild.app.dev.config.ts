@@ -14,8 +14,6 @@ const ctx = await context({
 
 await ctx.watch();
 
-const { hosts, port } = await ctx.serve({
+await ctx.serve({
   servedir: 'dist/app',
 });
-
-console.log(`serve at: http://${hosts[0]}:${port}`);
