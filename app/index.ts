@@ -1,14 +1,16 @@
 import { add } from './utils';
+import { routes } from './routes';
 
 const sum = add(2, 3);
 
 console.log(sum);
 
-const runLazy = async () => {
-  const { lazy } = await import('./feature');
-  const lazyText = lazy();
+const loadPage = async (name: keyof typeof routes) => {
+  const { render } = await routes[name]();
 
-  console.log(lazyText);
+  render();
 };
 
-runLazy();
+const currentPage = 'home';
+
+loadPage(currentPage);
