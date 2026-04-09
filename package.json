@@ -1,0 +1,23 @@
+{
+  "name": "react-pro-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:app:prod": "rm -rf dist/app && node --loader ts-node/esm configs/esbuild.app.config.ts",
+    "build:app:dev": "rm -rf dist/app && node --loader ts-node/esm configs/esbuild.app.dev.config.ts",
+    "build:lib": "rm -rf dist/lib && node --loader ts-node/esm configs/esbuild.lib.config.ts",
+    "build:lib:swc": "rm -rf dist/lib-swc && swc lib -d dist/lib-swc/esm --config-file .swcrc -C module.type=es6 && swc lib -d dist/lib-swc/cjs --config-file .swcrc -C module.type=commonjs"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.24",
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.5",
+    "esbuild": "^0.25.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "lodash": "^4.18.1"
+  }
+}
